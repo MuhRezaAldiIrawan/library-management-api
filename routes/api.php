@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\BookController;
 
 
 /*
@@ -28,6 +30,12 @@ Route::prefix('v1')->group(function () {
             Route::post('refresh', [AuthController::class, 'refresh']);
             Route::get('profile', [AuthController::class, 'profile']);
         });
+
+        // Category routes
+        Route::apiResource('categories', CategoryController::class);
+
+        // Book routes
+        Route::apiResource('books', BookController::class);
 
     });
 });
