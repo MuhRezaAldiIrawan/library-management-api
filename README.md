@@ -83,6 +83,47 @@ php artisan serve
 
 API akan berjalan di: `http://localhost:8000`
 
+## Running Tests
+
+Aplikasi ini dilengkapi dengan automated testing untuk memastikan semua endpoint bekerja dengan baik.
+
+### Run All Tests
+
+```bash
+php artisan test
+```
+
+### Run Specific Test File
+
+```bash
+# Test Authentication
+php artisan test --filter=AuthTest
+
+# Test Categories
+php artisan test --filter=CategoryTest
+
+# Test Books
+php artisan test --filter=BookTest
+
+# Test Borrows
+php artisan test --filter=BorrowTest
+```
+
+### Run with Coverage
+
+```bash
+php artisan test --coverage
+```
+
+### Test Coverage
+
+- ✅ **AuthTest** (9 tests): Register, login, logout, refresh token, profile, validations
+- ✅ **CategoryTest** (9 tests): CRUD operations, authorization, soft delete
+- ✅ **BookTest** (11 tests): CRUD, search, filter, stock management
+- ✅ **BorrowTest** (12 tests): Borrow/return books, stock tracking, authorization
+
+**Total: 43 tests dengan 173 assertions**
+
 ## API Documentation
 
 Base URL: `http://localhost:8000/api/v1`
