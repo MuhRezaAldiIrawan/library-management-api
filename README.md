@@ -417,12 +417,23 @@ config/
 
 ## Testing with Postman
 
-1. Import the API endpoints to Postman
-2. Set base URL to `http://localhost:8000/api/v1`
-3. Register a new user
-4. Login and copy the `access_token`
-5. Add token to Authorization header: `Bearer {token}`
-6. Test all endpoints
+### Import Postman Collection
+
+1. Buka Postman
+2. Klik tombol **Import**
+3. Pilih file `postman_collection.json` yang ada di root project
+4. Collection akan otomatis ter-import dengan semua endpoint
+
+### Testing Steps
+
+1. Pastikan server sudah berjalan (`php artisan serve`)
+2. Collection sudah memiliki variable `base_url` = `http://localhost:8000/api/v1`
+3. Register user baru melalui endpoint **Auth > Register**
+4. Login dan copy `access_token` dari response
+5. Simpan token ke variable `token` di collection atau langsung paste ke header Authorization
+6. Test semua endpoint dengan format: `Bearer {token}`
+
+**Note**: Token akan expire sesuai TTL yang diset di config JWT (default 60 menit)
 
 ## Pull Request 
 
