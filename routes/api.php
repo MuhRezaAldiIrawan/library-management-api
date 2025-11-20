@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\BookController;
+use App\Http\Controllers\Api\BorrowController;
 
 
 /*
@@ -36,6 +37,13 @@ Route::prefix('v1')->group(function () {
 
         // Book routes
         Route::apiResource('books', BookController::class);
+
+        Route::prefix('borrows')->group(function () {
+            Route::get('/', [BorrowController::class, 'index']);
+            Route::post('/', [BorrowController::class, 'borrow']);
+            Route::post('return', [BorrowController::class, 'return']);
+            Route::get('{borrow}', [BorrowController::class, 'show']);
+        });
 
     });
 });
