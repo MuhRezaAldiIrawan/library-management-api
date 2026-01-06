@@ -27,6 +27,13 @@ class AuthController extends Controller
         return $this->respondWithToken($token, 'User registered successfully', 201);
     }
 
+    public function test(): JsonResponse
+    {
+        return response()->json([
+            'success' => true,
+            'message' => 'API is working'
+        ]);
+    }
     /**
      * Login user and return JWT token
      */
