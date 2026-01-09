@@ -72,6 +72,7 @@ class BookController extends Controller
 
         return response()->json([
             'success' => true,
+            'message'=> 'success',
             'data' => new BookResource($book)
         ]);
     }
